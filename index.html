@@ -12,12 +12,12 @@
     <style>
         :root {
             /* پالت رنگی مینیمال و تیره */
-            --bg-color: #121212;       /* پس‌زمینه اصلی: مشکی دودی */
-            --card-bg: #1e1e1e;        /* رنگ کارت: کمی روشن‌تر */
-            --border-color: #333333;   /* رنگ حاشیه */
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --border-color: #333333;
             --text-main: #ffffff;
             --text-muted: #aaaaaa;
-            --accent-color: #4ecca3;   /* تنها رنگ متمایز (سبز) برای هویت بصری */
+            --accent-color: #4ecca3;
         }
 
         * {
@@ -36,11 +36,9 @@
             justify-content: center;
             align-items: center;
             color: var(--text-main);
-            /* اضافه کردن پدینگ برای جلوگیری از چسبیدن به پایین در موبایل */
             padding: 40px 20px; 
         }
 
-        /* کانتینر اصلی - ساده و تخت */
         .container {
             width: 100%;
             max-width: 400px;
@@ -49,7 +47,6 @@
             border-radius: 24px;
             padding: 2.5rem 2rem;
             text-align: center;
-            /* سایه بسیار محو برای جدا شدن از پس زمینه */
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             animation: fadeIn 0.8s ease-out;
         }
@@ -59,7 +56,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* پروفایل */
         .profile-box {
             margin-bottom: 2rem;
         }
@@ -68,7 +64,6 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            /* حذف بوردر رنگی ضخیم */
             border: 2px solid var(--border-color);
             object-fit: cover;
             margin-bottom: 1rem;
@@ -88,7 +83,7 @@
             display: block;
         }
 
-        /* باکس شماره تماس - ساده */
+        /* اصلاح باکس شماره تماس */
         .phone-box {
             display: flex;
             justify-content: center;
@@ -103,6 +98,9 @@
             color: var(--text-muted);
             transition: 0.3s;
             font-size: 0.95rem;
+            
+            /* ترفند برای قرار گرفتن آیکون پشت 0 */
+            direction: ltr; 
         }
         
         .phone-box:hover {
@@ -110,7 +108,13 @@
             color: var(--text-main);
         }
 
-        /* دکمه رزومه - حفظ تمایز اما ساده‌تر */
+        /* استایل خاص برای فونت اعداد */
+        .phone-box span {
+            font-family: sans-serif; /* خوانایی بهتر اعداد */
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
         .resume-btn {
             display: flex;
             justify-content: center;
@@ -118,9 +122,9 @@
             gap: 10px;
             width: 100%;
             padding: 14px;
-            background-color: var(--accent-color); /* رنگ تک بجای گرادینت */
+            background-color: var(--accent-color);
             border-radius: 14px;
-            color: #121212; /* متن تیره روی دکمه روشن */
+            color: #121212;
             text-decoration: none;
             font-weight: 700;
             font-size: 1rem;
@@ -129,11 +133,10 @@
         }
 
         .resume-btn:hover {
-            background-color: #3db892; /* کمی تیره‌تر هنگام هاور */
+            background-color: #3db892;
             transform: translateY(-2px);
         }
 
-        /* لیست لینک‌ها */
         .links-container {
             display: flex;
             flex-direction: column;
@@ -144,7 +147,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: transparent; /* حذف پس‌زمینه لینک‌ها */
+            background-color: transparent;
             border: 1px solid var(--border-color);
             padding: 14px 18px;
             border-radius: 14px;
@@ -154,7 +157,7 @@
         }
 
         .link-item:hover {
-            background-color: #2a2a2a; /* تغییر رنگ جزیی هنگام هاور */
+            background-color: #2a2a2a;
             border-color: #444;
         }
 
@@ -170,7 +173,7 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-            color: var(--text-muted); /* آیکون‌ها در حالت عادی خاکستری */
+            color: var(--text-muted);
             transition: 0.2s;
         }
         
@@ -199,32 +202,28 @@
 </head>
 <body>
 
-    <!-- کانتینر اصلی -->
     <div class="container">
         
-        <!-- بخش پروفایل -->
         <div class="profile-box">
+            <!-- عکس پروفایل -->
             <img src="https://ui-avatars.com/api/?name=Arman+Hagh&background=random&size=256&bold=true" alt="Arman Hagh-Shenas" class="profile-img">
             <h1>آرمان حق‌شناس</h1>
             <span class="job-title">طراح گرافیک</span>
         </div>
 
-        <!-- باکس شماره تماس -->
+        <!-- باکس شماره تماس (اصلاح شده: آیکون سمت چپ، پشت 0) -->
         <a href="tel:09309027196" class="phone-box">
             <i class="fas fa-phone-alt"></i>
             <span>09309027196</span>
         </a>
 
-        <!-- دکمه رزومه -->
         <a href="#" download class="resume-btn">
             <i class="fas fa-download"></i>
             دانلود رزومه
         </a>
 
-        <!-- لیست لینک‌ها -->
         <div class="links-container">
             
-            <!-- پورتفولیو -->
             <a href="https://behance.net/armvnhs" target="_blank" class="link-item">
                 <div class="left-side">
                     <div class="icon-box"><i class="fab fa-behance"></i></div>
@@ -233,7 +232,6 @@
                 <i class="fas fa-chevron-left arrow"></i>
             </a>
 
-            <!-- اینستاگرام -->
             <a href="https://instagram.com/armvnhs" target="_blank" class="link-item">
                 <div class="left-side">
                     <div class="icon-box"><i class="fab fa-instagram"></i></div>
@@ -242,7 +240,6 @@
                 <i class="fas fa-chevron-left arrow"></i>
             </a>
 
-            <!-- لینکدین -->
             <a href="https://linkedin.com/in/armvnhs" target="_blank" class="link-item">
                 <div class="left-side">
                     <div class="icon-box"><i class="fab fa-linkedin"></i></div>
@@ -251,7 +248,6 @@
                 <i class="fas fa-chevron-left arrow"></i>
             </a>
 
-            <!-- گیت‌هاب -->
             <a href="https://github.com/armvnhs" target="_blank" class="link-item">
                 <div class="left-side">
                     <div class="icon-box"><i class="fab fa-github"></i></div>
@@ -260,7 +256,6 @@
                 <i class="fas fa-chevron-left arrow"></i>
             </a>
 
-            <!-- کانال تلگرام -->
             <a href="https://t.me/armvnhs" target="_blank" class="link-item">
                 <div class="left-side">
                     <div class="icon-box"><i class="fab fa-telegram"></i></div>
@@ -269,8 +264,7 @@
                 <i class="fas fa-chevron-left arrow"></i>
             </a>
 
-            <!-- وب‌سایت -->
-            <a href="https://armvnhs.com" target="_blank" class="link-item">
+            <a href="https://armvnhs.ir" target="_blank" class="link-item">
                 <div class="left-side">
                     <div class="icon-box"><i class="fas fa-globe"></i></div>
                     <span class="link-title">وب‌سایت</span>
