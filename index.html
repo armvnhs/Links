@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آرمان حق‌شناس | طراح گرافیک</title>
+    <!-- آیکون‌ها -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- فونت فارسی وزیر -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+
+    <style>
+        :root {
+            --bg-dark: #0f0c29;
+            --bg-gradient: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            --glass-bg: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-color: #ffffff;
+            --accent-color: #4ecca3; /* رنگ اصلی سبز */
+            --resume-gradient: linear-gradient(90deg, #11998e, #38ef7d); /* رنگ خاص دکمه رزومه */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+            outline: none;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-color);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* پس‌زمینه انیمیشنی (دایره‌های رنگی) */
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 0;
+            opacity: 0.5;
+            animation: move 15s infinite alternate;
+        }
+        .circle-1 { width: 300px; height: 300px; background: #8E2DE2; top: -50px; left: -50px; }
+        .circle-2 { width: 400px; height: 400px; background: #4ecca3; bottom: -50px; right: -50px; animation-delay: -5s; }
+
+        @keyframes move {
+            from { transform: translate(0, 0); }
+            to { transform: translate(40px, 60px); }
+        }
+
+        /* کانتینر اصلی - ثابت */
+        .container {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            max-width: 420px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            margin: 20px 0;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* پروفایل */
+        .profile-box {
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid rgba(255,255,255,0.2);
+            padding: 3px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            transition: 0.4s;
+        }
+        
+        .profile-img:hover { transform: scale(1.05) rotate(3deg); border-color: var(--accent-color); }
+
+        h1 { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; }
+        
+        .job-title {
+            color: var(--accent-color);
+            font-size: 1rem;
+            font-weight: 500;
+            display: block;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* باکس شماره تماس */
+        .phone-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.05);
+            border: 1px dashed rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+            color: #ccc;
+            transition: 0.3s;
+        }
+        
+        .phone-box:hover {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            border-color: var(--accent-color);
+        }
+
+        /* دکمه رزومه (متمایز) */
+        .resume-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px;
+            background: var(--resume-gradient);
+            border-radius: 18px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(56, 239, 125, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resume-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .resume-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(56, 239, 125, 0.5);
+        }
+
+        /* لیست لینک‌ها */
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .link-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--glass-bg);
+            padding: 14px 20px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--text-color);
+            border: 1px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .link-item:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.2);
+            transform: translateX(-5px); 
+        }
+
+        .left-side {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .icon-box {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .link-title {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .arrow {
+            opacity: 0.5;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .link-item:hover .arrow {
+            opacity: 1;
+            transform: translateX(-5px);
+            color: var(--accent-color);
+        }
+
+        /* رنگ آیکون‌های برند */
+        .fa-instagram { color: #E1306C; }
+        .fa-linkedin { color: #0077b5; }
+        .fa-telegram { color: #0088cc; }
+        .fa-globe { color: #4ecca3; }
+        .fa-behance { color: #1769ff; } 
+        .fa-github { color: #ffffff; } /* رنگ آیکون گیت هاب */
+
+        footer {
+            margin-top: 2.5rem;
+            font-size: 0.75rem;
+            opacity: 0.5;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="bg-circle circle-1"></div>
+    <div class="bg-circle circle-2"></div>
+
+    <div class="container">
+        
+        <!-- بخش پروفایل -->
+        <div class="profile-box">
+            <img src="https://ui-avatars.com/api/?name=Arman+Hagh&background=random&size=256&bold=true" alt="Arman Hagh-Shenas" class="profile-img">
+            <h1>آرمان حق‌شناس</h1>
+            <span class="job-title">طراح گرافیک</span>
+        </div>
+
+        <!-- باکس شماره تماس -->
+        <a href="tel:09309027196" class="phone-box">
+            <i class="fas fa-phone-alt"></i>
+            <span>09309027196</span>
+        </a>
+
+        <!-- دکمه ویژه دانلود رزومه -->
+        <a href="#" download class="resume-btn">
+            <i class="fas fa-cloud-download-alt"></i>
+            دانلود رزومه
+        </a>
+
+        <!-- لیست لینک‌ها -->
+        <div class="links-container">
+            
+            <!-- 1. پورتفولیو -->
+            <a href="https://behance.net/armvnhs" target="_blank" class="link-item">
+                <div class="left-side">
+                    <div class="icon-box"><i class="fab fa-behance"></i></div>
+                    <span class="link-title">پورتفولیو</span>
+                </div>
+                <i class="fas fa-chevron-left arrow"></i>
+            </a>
+
+            <!-- 2. اینستاگرام -->
+            <a href="https://instagram.com/armvnhs" target="_blank" class="link-item">
+                <div class="left-side">
+                    <div class="icon-box"><i class="fab fa-instagram"></i></div>
+                    <span class="link-title">اینستاگرام</span>
+                </div>
+                <i class="fas fa-chevron-left arrow"></i>
+            </a>
+
+            <!-- 3. لینکدین -->
+            <a href="https://linkedin.com/in/armvnhs" target="_blank" class="link-item">
+                <div class="left-side">
+                    <div class="icon-box"><i class="fab fa-linkedin"></i></div>
+                    <span class="link-title">لینکدین</span>
+                </div>
+                <i class="fas fa-chevron-left arrow"></i>
+            </a>
+
+            <!-- لینک گیت‌هاب (جدید) -->
+            <a href="https://github.com/armvnhs" target="_blank" class="link-item">
+                <div class="left-side">
+                    <div class="icon-box"><i class="fab fa-github"></i></div>
+                    <span class="link-title">گیت‌هاب</span>
+                </div>
+                <i class="fas fa-chevron-left arrow"></i>
+            </a>
+
+            <!-- 4. کانال تلگرام -->
+            <a href="https://t.me/armvnhs" target="_blank" class="link-item">
+                <div class="left-side">
+                    <div class="icon-box"><i class="fab fa-telegram"></i></div>
+                    <span class="link-title">کانال تلگرام</span>
+                </div>
+                <i class="fas fa-chevron-left arrow"></i>
+            </a>
+
+            <!-- 5. وبسایت -->
+            <a href="https://armvnhs.com" target="_blank" class="link-item">
+                <div class="left-side">
+                    <div class="icon-box"><i class="fas fa-globe"></i></div>
+                    <span class="link-title">وب‌سایت</span>
+                </div>
+                <i class="fas fa-chevron-left arrow"></i>
+            </a>
+
+        </div>
+
+        <footer>
+            <p>طراحی شده توسط آرمان حق‌شناس © 2023</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
